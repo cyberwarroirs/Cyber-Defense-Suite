@@ -64,22 +64,25 @@ Phishing and Malicious URL/Email Detection
 
  ![Phishing and Malicious URLEmail Detection](Cyber%20Defense%20Suite/screenshots/Phishing%20and%20Malicious%20URLEmail%20Detection.png)  
 
+---
+##📌 Use Cases
 
-📌 Use Cases
+   - Security Operations Centers (SOC)
 
-    Security Operations Centers (SOC)
+   - Academic & research projects in cybersecurity
 
-    Academic & research projects in cybersecurity
+   - Businesses seeking affordable monitoring solutions
 
-    Businesses seeking affordable monitoring solutions
-
-    Students building cybersecurity portfolios
-
+   - Students building cybersecurity portfolios
+---
+---
 📜 License
 
 This project is licensed under the MIT License – you are free to use, modify, and distribute.
+---
+---
 👨‍💻 Author
 
 Developed by Cyberwarrior
-
+---
 © 2025 Cyberwarrior. All rights reserved.
