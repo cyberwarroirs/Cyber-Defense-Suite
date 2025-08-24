@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="mb-3">Phishing and Malicious URL/Email Detection</h2>
+
+<form action="/phishing" method="POST" class="mb-4">
+    <div class="mb-3">
+        <label for="input_data" class="form-label">Enter URL or Email Text:</label>
+        <textarea class="form-control" id="input_data" name="input_data" rows="4" placeholder="Paste URL or email content here..." required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Analyze</button>
+</form>
+
+{% if result %}
+<div class="alert alert-info mt-3">
+    {{ result }}
+</div>
+{% endif %}
+{% endblock %}

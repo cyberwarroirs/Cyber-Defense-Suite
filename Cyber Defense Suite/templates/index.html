@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="mb-4">Cyber Defense Suite Dashboard</h1>
+
+<div class="row">
+  <div class="col-md-6 mb-4">
+    <div class="card bg-secondary text-white h-100">
+      <div class="card-body">
+        <h5 class="card-title">Network Threat Detection</h5>
+        <p class="card-text">Upload PCAP files or run live monitoring for DDoS, port scans, and anomalies.</p>
+        <a href="/network" class="btn btn-light">Go to Network Module</a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-md-6 mb-4">
+    <div class="card bg-secondary text-white h-100">
+      <div class="card-body">
+        <h5 class="card-title">Host Monitoring</h5>
+        <p class="card-text">Check running processes, file integrity, and system changes in real time.</p>
+        <a href="/host" class="btn btn-light">Go to Host Module</a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-md-6 mb-4">
+    <div class="card bg-secondary text-white h-100">
+      <div class="card-body">
+        <h5 class="card-title">Log-Based Anomaly Detection</h5>
+        <p class="card-text">Upload logs (e.g. auth.log, syslog) to detect abnormal patterns and access.</p>
+        <a href="/log" class="btn btn-light">Go to Log Module</a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-md-6 mb-4">
+    <div class="card bg-secondary text-white h-100">
+      <div class="card-body">
+        <h5 class="card-title">Phishing Detection</h5>
+        <p class="card-text">Analyze URLs or email samples to detect phishing or malicious content.</p>
+        <a href="/phishing" class="btn btn-light">Go to Phishing Module</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

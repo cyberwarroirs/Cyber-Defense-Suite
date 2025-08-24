@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="mb-4">Host-Based Threat Detection</h2>
+
+<h4>🧪 Suspicious Processes</h4>
+{% if suspicious_procs %}
+<ul class="list-group mb-4">
+    {% for proc in suspicious_procs %}
+    <li class="list-group-item">
+        <strong>PID:</strong> {{ proc.pid }} |
+        <strong>Name:</strong> {{ proc.name }} |
+        <strong>Path:</strong> {{ proc.exe }}<br>
+        <strong>Cmdline:</strong> {{ proc.cmdline }}
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p class="text-success">✅ No suspicious processes detected.</p>
+{% endif %}
+
+<h4>🛡️ File Integrity Monitoring</h4>
+{% if file_changes %}
+<ul class="list-group mb-4">
+    {% for path, (old, new) in file_changes.items() %}
+    <li class="list-group-item">
+        <strong>{{ path }}</strong><br>
+        <strong>Expected:</strong> {{ old }}<br>
+        <strong>Current:</strong> {{ new or 'Missing' }}
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p class="text-success">✅ No unauthorized file changes.</p>
+{% endif %}
+
+<h4>🧬 Malware Hash Matches</h4>
+{% if malware_matches %}
+<ul class="list-group">
+    {% for proc in malware_matches %}
+    <li class="list-group-item text-danger">
+        ⚠️ <strong>PID:</strong> {{ proc.pid }} |
+        <strong>Name:</strong> {{ proc.name }} |
+        <strong>Hash:</strong> {{ proc.hash }}<br>
+        <strong>Executable:</strong> {{ proc.exe }}
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p class="text-success">✅ No known malware found.</p>
+{% endif %}
+{% endblock %}

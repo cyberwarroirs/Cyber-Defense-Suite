@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Live Network Monitor</title>
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+</head>
+<body>
+    <h2>Live Network Monitoring</h2>
+
+    <select id="interface">
+        {% for iface in interfaces %}
+        <option value="{{ iface }}">{{ iface }}</option>
+        {% endfor %}
+    </select>
+    <button onclick="startMonitoring()">Start Monitoring</button>
+
+    <ul id="alerts"></ul>
+
+    <script>
+        const socket = io();
+
+        function startMonitoring() {
+            const iface = document.getElementById("interface").value;
+            socket.emit('start_monitoring', { interface: iface });
+        }
+
+        socket.on('packet_alert', function(data) {
+            const alerts = document.getElementById("alerts");
+            const item = document.createElement("li");
+            item.textContent = data.msg;
+            alerts.appendChild(item);
+        });
+
+        socket.on('monitor_started', function(data) {
+            alert(data.msg);
+        });
+    </script>
+</body>
+</html>

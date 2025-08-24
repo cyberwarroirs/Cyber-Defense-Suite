@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="mb-3">Network Threat Detection</h2>
+
+<!-- PCAP Upload -->
+<form action="/network" method="POST" enctype="multipart/form-data" class="mb-4">
+    <div class="mb-3">
+        <label for="pcap_file" class="form-label">Upload PCAP File:</label>
+        <input class="form-control" type="file" name="pcap_file" id="pcap_file" accept=".pcap,.pcapng" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Analyze PCAP</button>
+</form>
+
+<!-- Static Live Monitoring (returns after sniffing) -->
+<form action="/network" method="POST" class="mb-4">
+    <div class="mb-3">
+        <label for="interface" class="form-label">Select Interface for Monitoring:</label>
+        <select name="interface" id="interface" class="form-control" required>
+            {% for iface in interfaces %}
+            <option value="{{ iface }}">{{ iface }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit" class="btn btn-warning">Run Static Monitoring</button>
+</form>
+
+<!-- Realtime Monitoring via WebSocket -->
+<div class="mb-4">
+    <label for="realtime-interface" class="form-label">Select Interface for Real-Time Monitoring:</label>
+    <select id="realtime-interface" class="form-control mb-2">
+        {% for iface in interfaces %}
+        <option value="{{ iface }}">{{ iface }}</option>
+        {% endfor %}
+    </select>
+    <button id="start-realtime" class="btn btn-success">Start Real-Time Monitoring</button>
+</div>
+
+<div class="mt-4">
+    <h4>📡 Realtime Packet Alerts</h4>
+    <ul id="realtime-alerts" class="list-group" style="max-height: 300px; overflow-y: auto;"></ul>
+</div>
+
+{% if results %}
+<hr>
+<h4>📊 PCAP Analysis Results</h4>
+<ul class="list-group">
+    {% for result in results %}
+    <li class="list-group-item">{{ result }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+{% if alerts is not none %}
+<hr>
+<h4>⚠️ Static Monitoring Alerts</h4>
+{% if alerts %}
+<ul class="list-group">
+    {% for alert in alerts %}
+    <li class="list-group-item text-danger">{{ alert }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p class="text-success">✔️ No threats detected during static monitoring.</p>
+{% endif %}
+{% endif %}
+
+<script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
+<script>
+    const socket = io();
+
+    document.getElementById("start-realtime").addEventListener("click", () => {
+        const iface = document.getElementById("realtime-interface").value;
+        socket.emit("start_monitoring", { interface: iface });
+    });
+
+    socket.on("monitor_started", data => {
+        alert(data.msg);
+    });
+
+    socket.on("packet_alert", data => {
+        const list = document.getElementById("realtime-alerts");
+        const item = document.createElement("li");
+        item.className = "list-group-item";
+        item.innerText = `${data.msg} [IP: ${data.ip}]`;
+        list.prepend(item);
+    });
+</script>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>📝 Log-Based Anomaly Detection</h2>
+
+<form action="/log" method="POST" enctype="multipart/form-data" class="mb-4">
+  <div class="mb-3">
+    <label for="log_file" class="form-label">Upload Log File:</label>
+    <input type="file" class="form-control" id="log_file" name="log_file" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Analyze Log</button>
+</form>
+
+{% if anomalies is not none %}
+  {% if anomalies %}
+    <hr>
+    <h4>🚨 Detected Anomalies</h4>
+    <table class="table table-bordered">
+      <thead>
+        <tr><th>Time</th><th>Service</th><th>Type</th><th>Severity</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+        {% for a in anomalies %}
+        <tr class="{{ 'table-danger' if a.severity > 80 else 'table-warning' }}">
+          <td>{{ a.timestamp }}</td>
+          <td>{{ a.service }}</td>
+          <td>{{ a.type }}</td>
+          <td>{{ a.severity }}</td>
+          <td>{{ a.description }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% if report_path %}
+    <a class="btn btn-outline-primary" href="{{ url_for('static', filename=report_path) }}" download>📥 Download PDF Report</a>
+    {% endif %}
+  {% else %}
+    <p class="text-success">No anomalies detected or data unavailable.</p>
+  {% endif %}
+{% endif %}
+
+{% endblock %}
