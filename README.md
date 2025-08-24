@@ -65,7 +65,7 @@ Phishing and Malicious URL/Email Detection
  ![Phishing and Malicious URLEmail Detection](Cyber%20Defense%20Suite/screenshots/Phishing%20and%20Malicious%20URLEmail%20Detection.png)  
 
 ---
-##📌 Use Cases
+## 📌 Use Cases
 
    - Security Operations Centers (SOC)
 
