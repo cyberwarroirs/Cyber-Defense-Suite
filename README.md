@@ -47,7 +47,7 @@ Log-Based Anomaly Detection
  
 Phishing and Malicious URL/Email Detection
 
- ![Phishing and Malicious URL/Email Detection](Cyber%20Defense%20Suite/screenshots/Phishing%20and%20Malicious%20URL-Email%20Detection.png)  
+ ![Phishing and Malicious URLEmail Detection](Cyber%20Defense%20Suite/screenshots/Phishing%20and%20Malicious%20URLEmail%20Detection.png)  
 
 📌 Use Cases
 •	Security Operations Centers (SOC)
