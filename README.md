@@ -30,24 +30,24 @@ http://127.0.0.1:5000
 📸 Screenshots
 Dashboard
  
-![Dashboard](screenshots/Dashboard.png)
+![Dashboard](Cyber%20Defense%20Suite/screenshots/Dashboard.png)
 
 Network Threat Detection
  
-![Network Threat Detection](screenshots/Network%20Threat%20Detection.png)  
+![Network Threat Detection](Cyber%20Defense%20Suite/screenshots/Network%20Threat%20Detection.png)  
  
 Host-based Threat Detection
  
-![Host-based Threat Detection](screenshots/Host-based%20Threat%20Detection.png)  
+![Host-based Threat Detection](Cyber%20Defense%20Suite/screenshots/Host-based%20Threat%20Detection.png)  
 
 
 Log-Based Anomaly Detection
  
-![Log-Based Anomaly Detection](screenshots/Log-Based%20Anomaly%20Detection.png)
+![Log-Based Anomaly Detection](Cyber%20Defense%20Suite/screenshots/Log-Based%20Anomaly%20Detection.png)
  
 Phishing and Malicious URL/Email Detection
 
- ![Phishing and Malicious URL/Email Detection](screenshots/Phishing%20and%20Malicious%20URL-Email%20Detection.png)  
+ ![Phishing and Malicious URL/Email Detection](Cyber%20Defense%20Suite/screenshots/Phishing%20and%20Malicious%20URL-Email%20Detection.png)  
 
 📌 Use Cases
 •	Security Operations Centers (SOC)
