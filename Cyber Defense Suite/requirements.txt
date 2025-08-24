@@ -1,0 +1,26 @@
+# Cyber Defense Suite - Requirements
+
+flask
+flask-socketio
+eventlet
+psutil
+scapy
+pyshark
+reportlab
+pandas
+matplotlib
+
+
+
+# If latest versions cause issues, install these pinned versions
+
+# flask==3.0.3               # Web framework for the app
+# flask-socketio==5.3.6      # Real-time communication (WebSockets)
+# eventlet==0.36.1           # Async server for Flask-SocketIO
+# psutil==6.0.0              # System & process monitoring
+# scapy==2.6.1               # Packet sniffing & network analysis
+# pyshark==0.6               # PCAP parsing with tshark backend
+# reportlab==4.2.2           # PDF report generation
+# pandas==2.2.2              # Data analysis for logs & anomalies
+# matplotlib==3.9.2          # Graphs & visualizations
+
