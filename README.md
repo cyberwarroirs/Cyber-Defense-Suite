@@ -75,11 +75,9 @@ Phishing and Malicious URL/Email Detection
 
    - Students building cybersecurity portfolios
 ---
----
 📜 License
 
 This project is licensed under the MIT License – you are free to use, modify, and distribute.
----
 ---
 👨‍💻 Author
 
